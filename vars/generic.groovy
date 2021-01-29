@@ -32,7 +32,7 @@ def exec_node = (config.exec_node) ? config.exec_node : 'master'
                   
             
         }
-        /*stage('INFRA CREATION') {
+        stage('INFRA CREATION') {
         
                 tf_path = configurationYML.terraform.tfPath
                 dir('${tf_path}') {
@@ -48,7 +48,7 @@ def exec_node = (config.exec_node) ? config.exec_node : 'master'
                     println('TARGET INFRA CREATED')
                 }
             
-        }*/
+        }
     
     }
 }
