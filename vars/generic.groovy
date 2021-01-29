@@ -61,7 +61,7 @@ def loadConfigurationYML (Map config) {
         configurationYMLFilePath = config.configTool.configurationYMLFilePath
         dir(configurationYMLFilePath) {
             if(fileExists(fileName)) {
-                configurationYML = readYaml file: fileName;
+                configurationYML = readYaml file: 'app.yml'
                 println("terraform path:"+configurationYML.terraform.tfpath)
             } else {
                 println("Configuration YML file not found. File name: ${fileName}. ")
