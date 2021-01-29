@@ -15,7 +15,7 @@ def exec_node = (config.exec_node) ? config.exec_node : 'master'
     node(exec_node) {
         pipelineDirectory = "${env.WORKSPACE}"
         stage('GIT CHECKOUT') {
-            steps {
+            
                 dir('/home/mgmtbld/decoder') {
                     println('SCM Checkout started')
                     checkout changelog: false, poll: true, scm: [$class: 'GitSCM', branches: [[name: 'main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'subhashree', url: 'https://github.com/hiteshcloudwork/platformui.git']]]
@@ -24,10 +24,10 @@ def exec_node = (config.exec_node) ? config.exec_node : 'master'
                     loadConfigurationYML(configTool: ymlconfig)    
                 }
                   
-            }
+            
         }
         stage('INFRA CREATION') {
-            steps {
+        
                 tf_path = configurationYML.terraform.tfPath
                 dir('${tf_path}') {
                     println('TARGET INFRA CREATION STARTED')
@@ -41,7 +41,7 @@ def exec_node = (config.exec_node) ? config.exec_node : 'master'
                     '''
                     println('TARGET INFRA CREATED')
                 }
-            }
+            
         }
     
     }
