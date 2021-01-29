@@ -13,7 +13,6 @@ def tf_path = "";
 def exec_node = (config.exec_node) ? config.exec_node : 'master'
     //agent any
     node(exec_node) {
-        stages {
         pipelineDirectory = "${env.WORKSPACE}"
         stage('GIT CHECKOUT') {
             steps {
@@ -44,7 +43,7 @@ def exec_node = (config.exec_node) ? config.exec_node : 'master'
                 }
             }
         }
-    }
+    
     }
 }
 
