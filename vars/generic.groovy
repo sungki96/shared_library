@@ -55,7 +55,7 @@ def exec_node = (config.exec_node) ? config.exec_node : 'master'
 
 def loadConfigurationYML (Map config) {
     Boolean returnVal = true;
-    returnVal = dir(env.pipelineDirectory+"/yml") {
+    returnVal = dir('${pipelineDirectory}/yml') {
         def validationFailed = false;
         def fileName = "app.yml";
         configurationYMLFilePath = config.configTool.configurationYMLFilePath
