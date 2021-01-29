@@ -26,7 +26,7 @@ def exec_node = (config.exec_node) ? config.exec_node : 'master'
                     cd yml
                     ls -la
                     '''
-                    Map ymlconfig = [configurationYMLFilePath : "${pipelineDirectory}/yml"]
+                    Map ymlconfig = [configurationYMLFilePath : "/home/mgmtbld/decoder/yml"]
                     loadConfigurationYML(configTool: ymlconfig)    
                 }
                   
@@ -55,7 +55,7 @@ def exec_node = (config.exec_node) ? config.exec_node : 'master'
 
 def loadConfigurationYML (Map config) {
     Boolean returnVal = true;
-    returnVal = dir('${pipelineDirectory}/yml') {
+    returnVal = dir('/home/mgmtbld/decoder/yml') {
         def validationFailed = false;
         def fileName = "app.yml";
         configurationYMLFilePath = config.configTool.configurationYMLFilePath
