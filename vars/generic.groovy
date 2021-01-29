@@ -1,6 +1,6 @@
-import groovy.util.*
+/*#import groovy.util.*
 import groovy.json.*
-import groovy.transform.Field
+import groovy.transform.Field*/
 
 properties([pipelineTriggers([githubPush()])])
 @Field def configurationYMLFilePath="";
