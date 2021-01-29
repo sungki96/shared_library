@@ -22,6 +22,7 @@ def exec_node = (config.exec_node) ? config.exec_node : 'master'
                     println('SCM Checkout Completed')
                     sh script: '''
                     ls -la
+                    pwd
                     cd yml
                     ls -la
                     '''
