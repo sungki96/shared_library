@@ -20,8 +20,13 @@ def exec_node = (config.exec_node) ? config.exec_node : 'master'
                     println('SCM Checkout started')
                     checkout changelog: false, poll: true, scm: [$class: 'GitSCM', branches: [[name: 'main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'subhashree', url: 'https://github.com/hiteshcloudwork/platformui.git']]]
                     println('SCM Checkout Completed')
-                    Map ymlconfig = [configurationYMLFilePath : "${pipelineDirectory}/yml"]
-                    loadConfigurationYML(configTool: ymlconfig)    
+                    sh script: '''
+                    ls -la
+                    cd yml
+                    ls -la
+                    '''
+                    //Map ymlconfig = [configurationYMLFilePath : "${pipelineDirectory}/yml"]
+                    //loadConfigurationYML(configTool: ymlconfig)    
                 }
                   
             
