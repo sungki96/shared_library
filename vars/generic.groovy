@@ -13,7 +13,7 @@ def tf_path = "";
 def exec_node = (config.exec_node) ? config.exec_node : 'master'
     //agent any
     node(exec_node) {
-        pipelineDirectory = "${env.WORKSPACE}"
+        pipelineDirectory = "${env.WORKSPACE}/home/mgmtbld/decoder"
         stage('GIT CHECKOUT') {
             
                 dir('/home/mgmtbld/decoder') {
@@ -26,8 +26,8 @@ def exec_node = (config.exec_node) ? config.exec_node : 'master'
                     cd yml
                     ls -la
                     '''
-                    //Map ymlconfig = [configurationYMLFilePath : "${pipelineDirectory}/yml"]
-                    //loadConfigurationYML(configTool: ymlconfig)    
+                    Map ymlconfig = [configurationYMLFilePath : "${pipelineDirectory}/yml"]
+                    loadConfigurationYML(configTool: ymlconfig)    
                 }
                   
             
