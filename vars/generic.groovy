@@ -3,8 +3,8 @@ import groovy.json.*
 import groovy.transform.Field*/
 
 properties([pipelineTriggers([githubPush()])])
-@Field def configurationYMLFilePath="";
-@Field def configurationYML="";
+def configurationYMLFilePath="";
+def configurationYML="";
 def pipelineDirectory = "";
 def tf_path = "";
 
