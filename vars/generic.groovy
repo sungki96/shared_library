@@ -1,16 +1,19 @@
-/*#import groovy.util.*
+import groovy.util.*
 import groovy.json.*
-import groovy.transform.Field*/
+import groovy.transform.Field
 
 properties([pipelineTriggers([githubPush()])])
+
+def call(Map config) {
+
 def configurationYMLFilePath="";
 def configurationYML="";
 def pipelineDirectory = "";
 def tf_path = "";
-
-def call(Map config) {
-    agent any
-    stages {
+def exec_node = (config.exec_node) ? config.exec_node : 'master'
+    //agent any
+    node(exec_node) {
+        stages {
         pipelineDirectory = "${env.WORKSPACE}"
         stage('GIT CHECKOUT') {
             steps {
@@ -41,6 +44,7 @@ def call(Map config) {
                 }
             }
         }
+    }
     }
 }
 
