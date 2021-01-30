@@ -9,7 +9,7 @@ def call(Map config) {
 def configurationYMLFilePath="";
 def configurationYML="";
 def pipelineDirectory = "";
-def tf_path = "";
+def tf_path = TF_PATH
 def exec_node = (config.exec_node) ? config.exec_node : 'master'
     //agent any
     node(exec_node) {
@@ -35,7 +35,7 @@ def exec_node = (config.exec_node) ? config.exec_node : 'master'
         stage('INFRA CREATION') {
         
                 //tf_path = configurationYML.terraform.tfPath
-            tf_path = ${env.TF_PATH}
+            
                 dir('${tf_path}') {
                     println('TARGET INFRA CREATION STARTED')
                     sh script: ''' 
