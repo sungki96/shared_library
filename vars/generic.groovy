@@ -35,8 +35,8 @@ def exec_node = (config.exec_node) ? config.exec_node : 'master'
         stage('INFRA CREATION') {
         
                 //tf_path = configurationYML.terraform.tfPath
-            
-                dir('${tf_path}') {
+                println('TF_PATH'+tf_path)
+                dir('tf_path') {
                     println('TARGET INFRA CREATION STARTED')
                     sh script: ''' 
                         pwd
