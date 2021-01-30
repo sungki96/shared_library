@@ -57,11 +57,11 @@ def loadConfigurationYML (Map config) {
     Boolean returnVal = true;
     returnVal = dir('/home/mgmtbld/decoder/yml') {
         def validationFailed = false;
-        def fileName = "app.yml";
+        def fileName = "app.yml"
         configurationYMLFilePath = config.configTool.configurationYMLFilePath
         dir(configurationYMLFilePath) {
             if(fileExists(fileName)) {
-                configurationYML = readYaml file: 'app.yml'
+                configurationYML = readYaml file: "app.yml"
                 println("terraform path:"+configurationYML.terraform.tfpath)
             } else {
                 println("Configuration YML file not found. File name: ${fileName}. ")
