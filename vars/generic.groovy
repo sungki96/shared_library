@@ -34,7 +34,7 @@ def exec_node = (config.exec_node) ? config.exec_node : 'master'
         }
         stage('INFRA CREATION') {
         
-                tf_path = configurationYML.terraform.tfPath
+                tf_path = configurationYML.Terraform.tfPath
                 dir('${tf_path}') {
                     println('TARGET INFRA CREATION STARTED')
                     sh script: ''' 
@@ -62,7 +62,7 @@ def loadConfigurationYML (Map config) {
         dir(configurationYMLFilePath) {
             if(fileExists(fileName)) {
                 configurationYML = readYaml file: 'app.yml'
-                println("terraform path:"+configurationYML.terraform.tfpath)
+                println("terraform path:"+configurationYML.Terraform.tfpath)
             } else {
                 println("Configuration YML file not found. File name: ${fileName}. ")
                 validationFailed = true;
