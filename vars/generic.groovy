@@ -26,15 +26,16 @@ def exec_node = (config.exec_node) ? config.exec_node : 'master'
                     cd yml
                     ls -la
                     '''
-                    Map ymlconfig = [configurationYMLFilePath : "/home/mgmtbld/decoder/yml"]
-                    loadConfigurationYML(configTool: ymlconfig)    
+                    //Map ymlconfig = [configurationYMLFilePath : "/home/mgmtbld/decoder/yml"]
+                    //loadConfigurationYML(configTool: ymlconfig)    
                 }
                   
             
         }
         stage('INFRA CREATION') {
         
-                tf_path = configurationYML.terraform.tfPath
+                //tf_path = configurationYML.terraform.tfPath
+            tf_path = ${env.TF_PATH}
                 dir('${tf_path}') {
                     println('TARGET INFRA CREATION STARTED')
                     sh script: ''' 
