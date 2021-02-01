@@ -40,7 +40,7 @@ def exec_node = (config.exec_node) ? config.exec_node : 'master'
                     println('TARGET INFRA CREATION STARTED')
                     sh script: ''' 
                         pwd
-                        set -i '1d' main.tf
+                        sed -i '1d' main.tf
                         cat main.tf
                         terraform init
                         terraform plan
