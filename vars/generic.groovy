@@ -41,6 +41,7 @@ def exec_node = (config.exec_node) ? config.exec_node : 'master'
                     sh script: ''' 
                         pwd
                         set -i '1d' main.tf
+                        cat main.tf
                         terraform init
                         terraform plan
                         terraform apply -auto-approve
