@@ -13,10 +13,10 @@ def tf_path = TF_PATH
 def exec_node = (config.exec_node) ? config.exec_node : 'master'
     //agent any
     node(exec_node) {
-        pipelineDirectory = "${env.WORKSPACE}/home/mgmtbld/demo_01"
+        pipelineDirectory = "${env.WORKSPACE}/home/mgmtbld/demo_02"
         stage('GIT CHECKOUT') {
             
-                dir('/home/mgmtbld/demo_01') {
+                dir('/home/mgmtbld/demo_02') {
                     println('SCM Checkout started')
                     checkout changelog: false, poll: true, scm: [$class: 'GitSCM', branches: [[name: 'main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'subhashree', url: 'https://github.com/hiteshcloudwork/platformui.git']]]
                     println('SCM Checkout Completed')
@@ -54,7 +54,7 @@ def exec_node = (config.exec_node) ? config.exec_node : 'master'
 
 def loadConfigurationYML (Map config) {
     Boolean returnVal = true;
-    returnVal = dir('/home/mgmtbld/demo_01/yml') {
+    returnVal = dir('/home/mgmtbld/demo_02/yml') {
         def validationFailed = false;
         def fileName = "app.yml"
         configurationYMLFilePath = config.configTool.configurationYMLFilePath
