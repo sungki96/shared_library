@@ -43,6 +43,7 @@ def exec_node = (config.exec_node) ? config.exec_node : 'master'
                         terraform fmt | sed -i '1d' main.tf
                         terraform init -upgrade=true
                         terraform plan
+                        terraform apply -auto-approve
                     '''
                     println('TARGET INFRA CREATED')
                 }
