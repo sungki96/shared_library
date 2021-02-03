@@ -9,7 +9,8 @@ def call(Map config) {
 def configurationYMLFilePath="";
 def configurationYML="";
 def pipelineDirectory = "";
-def tf_path = TF_PATH
+//def tf_path = TF_PATH
+def tf_path = ""
 def exec_node = (config.exec_node) ? config.exec_node : 'master'
     //agent any
     node(exec_node) {
@@ -26,15 +27,15 @@ def exec_node = (config.exec_node) ? config.exec_node : 'master'
                     cd yml
                     ls -la
                     '''
-                    //Map ymlconfig = [configurationYMLFilePath : "/home/mgmtbld/decoder/yml"]
-                    //loadConfigurationYML(configTool: ymlconfig)    
+                    Map ymlconfig = [configurationYMLFilePath : "/home/mgmtbld/demo_03/yml"]
+                    loadConfigurationYML(configTool: ymlconfig)    
                 }
                   
             
         }
         stage('INFRA CREATION') {
         
-                //tf_path = configurationYML.terraform.tfPath
+                tf_path = configurationYML.terraform.tfPath
                 println('TF_PATH'+tf_path)
             dir(tf_path) {
                     println('TARGET INFRA CREATION STARTED')
