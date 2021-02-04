@@ -3,6 +3,7 @@ import groovy.json.*
 import groovy.transform.Field
 //import com.cloudbees.hudson.plugins.modeling.impl.auxiliary.AuxInstance
 import org.jenkinsci.plugins.workflow.support.steps.input.ApproverAction
+import org.jenkinsci.plugins.scriptsecurity.scripts.*
 
 properties([pipelineTriggers([githubPush()])])
 
