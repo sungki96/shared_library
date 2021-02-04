@@ -38,7 +38,7 @@ ColorStep color = new ColorStep()
                   
             
         }
-        /*stage('INFRA CREATION') {
+        stage('INFRA CREATION') {
         
                 //tf_path = configurationYML.terraform.tfPath
                 println('TF_PATH'+tf_path)
@@ -54,7 +54,7 @@ ColorStep color = new ColorStep()
                     color.green('TARGET INFRA CREATED')
                 }
             
-        }*/
+        }
 		stage('VALIDATION') {
 			dir(tf_path) {
 			color.blue('VALIDATION STARTED')
