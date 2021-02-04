@@ -75,9 +75,7 @@ ColorStep color = new ColorStep()
 			def forwardingRule = sh(script: """terraform show -json | jq -r '.values.root_module.resource[] | select (.type=="google_compute_forwarding_rule") | .values.name'""", returnStdout: true).toString().trim()
 			def backendService = sh(script: """terraform show -json | jq -r '.values.root_module.resource[] | select (.type=="google_compute_region_backend_service") | .values.name'""", returnStdout: true).toString().trim()
 			def healthCheck = sh(script: """terraform show -json | jq -r '.values.root_module.resource[] | select (.type=="google_compute_region_health_check") | .values.name'""", returnStdout: true).toString().trim()
-			color.blue("INSTANCE IP ADDRESS: ${ipaddress} \nINSTANCE NAME: ${instance_name} \nDNS NAME: ${dns_name} \DNS RECORD SET: ${dns_record} \nNETWORK NAME: ${network_name} \nSUBNETWORK NAME: ${subnetwork_name}
-			\nSERVICE ACCOUNT: ${serviceAccount} \nFIREWALL NAME: ${fireWall} \nIMAGE NAME: ${imageName} \nDISK NAME: ${diskName} \nTEMPLATE NAME: ${templateName} \nSQL INSTANCE: ${sqlInstance} 
-			\nDB NAME: ${dbName} \nSQL USER: ${sqlUser} \nFORWARDING RULE: ${forwardingRule} \nBACKEND SERVICE NAME: ${backendService} \nHEALTH CHECK NAME: ${healthCheck}")
+			color.blue("INSTANCE IP ADDRESS: ${ipaddress} \nINSTANCE NAME: ${instance_name} \nDNS NAME: ${dns_name} \nDNS RECORD SET: ${dns_record} \nNETWORK NAME: ${network_name} \nSUBNETWORK NAME: ${subnetwork_name} \nSERVICE ACCOUNT: ${serviceAccount} \nFIREWALL NAME: ${fireWall} \nIMAGE NAME: ${imageName} \nDISK NAME: ${diskName} \nTEMPLATE NAME: ${templateName} \nSQL INSTANCE: ${sqlInstance} \nDB NAME: ${dbName} \nSQL USER: ${sqlUser} \nFORWARDING RULE: ${forwardingRule} \nBACKEND SERVICE NAME: ${backendService} \nHEALTH CHECK NAME: ${healthCheck}")
 			color.green('VALIDATION COMPLETED')
 			}
 		}
