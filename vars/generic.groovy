@@ -29,7 +29,7 @@ ColorStep color = new ColorStep()
                     sh script: '''
                     ls -la
                     pwd
-                    cd yml
+                    cd demo/scenario_02
                     ls -la
                     '''
                     //Map ymlconfig = [configurationYMLFilePath : "/home/mgmtbld/demo_03/yml"]
